@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { generateID } from '../../helper';
 import ToDoItem from './ToDoItem';
 import ToDoListForm from '../forms/ToDoListForm';
+import styles from './ToDoApp.module.css';
 
 const ToDoApp = () => {
   const [toDoList, setToDoList] = useState([]);
@@ -43,10 +44,10 @@ const ToDoApp = () => {
   };
 
   return (
-    <>
-      <ToDoListForm onSubmit={addToDoItem} />
-      <ul>{renderToDoList()}</ul>
-    </>
+      <article className={styles.toDoAppContainer}>
+        <ToDoListForm onSubmit={addToDoItem} />
+        <ul className={styles.toDoList}>{renderToDoList()}</ul>
+      </article>
   );
 };
 

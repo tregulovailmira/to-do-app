@@ -1,8 +1,14 @@
 import React from 'react';
-import { useField, Form, FormikProps, Formik, useFormik } from 'formik';
+import { Form, Formik } from 'formik';
 import Input from '../fields/Input';
+import Button from '../fields/Button';
+import styles from './ToDoListForm.module.css';
+import Classnames from 'classnames';
 
 const ToDoListForm = (props) => {
+  const { stylesClasses: { container } = {} } = props;
+  const formClasses = Classnames(container, styles.formContainer);
+
   const initialValues = {
     toDo: '',
   };
@@ -15,13 +21,14 @@ const ToDoListForm = (props) => {
 
   return (
     <Formik onSubmit={submitHandler} initialValues={initialValues}>
-      <Form>
+      <Form className={formClasses}>
         <Input
           placeholder="Write here..."
           name="toDo"
           label="toDo"
+          stylesClasses={{ container: styles.inputMargin }}
         />
-        <button type="submit">Add</button>
+        <Button type="submit">ADD</Button>
       </Form>
     </Formik>
   );

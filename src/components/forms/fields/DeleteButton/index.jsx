@@ -8,7 +8,7 @@ const DeleteButton = (props) => {
     e.stopPropagation();
     deleteItems(itemID);
   };
-  return <Icon path={mdiDelete} size={1} onClick={handleDelete} />;
+  return <Icon path={mdiDelete} size={1} onClick={handleDelete} style={{color:"grey"}}/>;
 };
 
 export default DeleteButton;

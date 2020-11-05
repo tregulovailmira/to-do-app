@@ -1,0 +1,9 @@
+.checkbox {
+  margin-right: 20px;
+  transform: scale(1.3);
+}
+
+.checkboxContainer{
+  width: 100%;
+  cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DeleteButton from '../../forms/fields/DeleteButton';
 import Checkbox from '../../forms/fields/Checkbox';
+import styles from './ToDoItem.module.css';
+import Classnames from 'classnames';
 
 const ToDoItem = (props) => {
   const {
@@ -8,10 +10,16 @@ const ToDoItem = (props) => {
     removeToDoItem,
     toggleToDo,
   } = props;
+
+  const toDoItemClasses = Classnames(styles.toDoItemContainer, {
+    [styles.isDone]: isDone,
+  });
   return (
-    <li>
-      <Checkbox value={isDone} onChange={() => toggleToDo(id)} />
-      {toDo}
+    <li className={toDoItemClasses}>
+      <Checkbox value={isDone} onChange={() => toggleToDo(id)}>
+        {toDo}
+      </Checkbox>
+
       <DeleteButton deleteItems={removeToDoItem} itemID={id} />
     </li>
   );
