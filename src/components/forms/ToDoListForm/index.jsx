@@ -15,7 +15,8 @@ const ToDoListForm = (props) => {
 
   const submitHandler = (values, formikBag) => {
     const { onSubmit } = props;
-    onSubmit(values.toDo);
+    const { toDo } = values;
+    toDo && onSubmit(toDo);
     formikBag.resetForm();
   };
 
