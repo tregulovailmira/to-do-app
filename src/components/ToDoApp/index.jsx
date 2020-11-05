@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { generateID } from '../../helper';
 import ToDoItem from './ToDoItem';
 import ToDoListForm from '../forms/ToDoListForm';
@@ -31,23 +31,27 @@ const ToDoApp = () => {
   };
 
   const renderToDoList = () => {
-    return toDoList.map((toDoItem) => {
-      return (
-        <ToDoItem
-          key={toDoItem.id}
-          toDoItem={toDoItem}
-          removeToDoItem={removeToDoItem}
-          toggleToDo={toggleToDo}
-        />
-      );
-    });
+    return (
+      Boolean(toDoList.length) && (
+        <ul className={styles.toDoList}>
+          {toDoList.map((toDoItem) => (
+            <ToDoItem
+              key={toDoItem.id}
+              toDoItem={toDoItem}
+              removeToDoItem={removeToDoItem}
+              toggleToDo={toggleToDo}
+            />
+          ))}
+        </ul>
+      )
+    );
   };
 
   return (
-      <article className={styles.toDoAppContainer}>
-        <ToDoListForm onSubmit={addToDoItem} />
-        <ul className={styles.toDoList}>{renderToDoList()}</ul>
-      </article>
+    <article className={styles.toDoAppContainer}>
+      <ToDoListForm onSubmit={addToDoItem} />
+      {renderToDoList()}
+    </article>
   );
 };
 

@@ -3,9 +3,8 @@ import { useField } from 'formik';
 import styles from './Input.module.css';
 import Classnames from 'classnames';
 
-const Input = (props) => {
+const Input = ({stylesClasses: { container } = {}, ...props}) => {
   const [field] = useField(props);
-  const { stylesClasses: { container } = {} } = props;
 
   const inputClasses = Classnames(container, styles.inputContainer);
 

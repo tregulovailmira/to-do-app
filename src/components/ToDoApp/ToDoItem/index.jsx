@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DeleteButton from '../../forms/fields/DeleteButton';
 import Checkbox from '../../forms/fields/Checkbox';
 import styles from './ToDoItem.module.css';
